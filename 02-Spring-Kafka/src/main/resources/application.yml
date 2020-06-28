@@ -1,0 +1,18 @@
+spring:
+  kafka:
+    bootstrap-servers: 192.168.1.180:9092
+    producer:
+      bootstrap-servers: 192.168.1.180:9092
+      retries: 1
+      batch-size: 16384
+      buffer-memory: 1024000
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      bootstrap-servers: 192.168.1.180:9092
+      group-id: foobar_group
+      max-poll-records: 100
+      enable-auto-commit: true
+      auto-commit-interval: 100
+      key-deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
